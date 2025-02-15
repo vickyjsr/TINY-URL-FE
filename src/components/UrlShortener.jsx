@@ -39,12 +39,44 @@ const UrlShortener = () => {
         }
     };
 
-    const copyToClipboard = async () => {
+    const copyToClipboard = async (text) => {
         try {
-            await navigator.clipboard.writeText(shortenedUrl);
+            // Try the modern clipboard API first
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(text);
+                return true;
+            }
+            
+            // Fallback for older browsers or non-secure contexts
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                textArea.remove();
+                return true;
+            } catch (err) {
+                textArea.remove();
+                return false;
+            }
+        } catch (err) {
+            console.error('Failed to copy text: ', err);
+            return false;
+        }
+    };
+
+    const handleCopy = async () => {
+        const success = await copyToClipboard(shortenedUrl);
+        if (success) {
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
-        } catch (err) {
+        } else {
             setError('Failed to copy to clipboard');
         }
     };
@@ -104,7 +136,7 @@ const UrlShortener = () => {
                                 className={copied ? 'success-animation' : ''}
                             />
                             <button 
-                                onClick={copyToClipboard} 
+                                onClick={handleCopy} 
                                 className={`copy-button ${copied ? 'success-animation' : ''}`}
                                 title="Copy to clipboard"
                             >

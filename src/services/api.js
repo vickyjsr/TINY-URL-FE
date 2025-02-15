@@ -25,7 +25,7 @@ const api = {
     createShortUrl: async (url) => {
         try {
             const response = await fetch(
-                `${config.API_BASE_URL}/newTinyUrl?originalUrl=${encodeURIComponent(url)}`,
+                `${config.API_BASE_URL}/new?originalUrl=${encodeURIComponent(url)}`,
                 {
                     method: 'POST',
                     headers: {
@@ -42,7 +42,7 @@ const api = {
     getOriginalUrl: async (shortCode) => {
         try {
             const response = await fetch(
-                `${config.API_BASE_URL}/getUrl?tinyUrl=${encodeURIComponent(shortCode)}`,
+                `${config.API_BASE_URL}/get?tinyUrl=${encodeURIComponent(shortCode)}`,
                 {
                     method: 'GET',
                     headers: {

@@ -1,5 +1,5 @@
 const config = {
-    API_BASE_URL: process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080/v1',
+    API_BASE_URL: process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080',
     APP_URL: process.env.REACT_APP_URL || 'http://localhost:3000',
     ENV: process.env.REACT_APP_ENV || 'development',
     APP_VERSION: process.env.REACT_APP_VERSION || '1.0.0',
