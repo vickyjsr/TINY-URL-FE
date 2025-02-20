@@ -4,6 +4,7 @@ import api from '../services/api';
 import config from '../config';
 import '../styles/UrlShortener.css';
 import { validateUrl, formatUrl } from '../utils/urlUtils';
+import SocialMediaLinks from './SocialMediaLinks';
 
 const UrlShortener = () => {
     const [originalUrl, setOriginalUrl] = useState('');
@@ -101,6 +102,7 @@ const UrlShortener = () => {
                     <div className="input-group">
                         <FiLink className="input-icon" />
                         <input
+                            className="input-place"
                             type="url"
                             value={originalUrl}
                             onChange={handleUrlChange}
@@ -145,6 +147,8 @@ const UrlShortener = () => {
                         </div>
                     </div>
                 )}
+
+            <SocialMediaLinks />
             </div>
         </div>
     );

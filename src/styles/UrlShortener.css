@@ -95,6 +95,8 @@ h1 {
     position: relative;
     display: flex;
     align-items: center;
+    width: 100%;
+    justify-content: space-around;
 }
 
 .input-icon {
@@ -111,13 +113,30 @@ h1 {
 
 input {
     width: 100%;
-    padding: 25px 25px 25px 60px;
+    padding: 25px 20px 25px 60px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     font-size: 1.1rem;
     color: #FFFFFF;
+    text-align: justify;
+    justify-content: end;
     transition: all 0.3s ease;
+}
+
+input-group {
+    justify-content: end;
+}
+
+@media (max-width: 600px) {
+    .input-place {
+        padding: 20px 15px 20px 48px;
+        font-size: 1rem;
+    }
+    .input-icon {
+        left: 20px;
+        font-size: 1rem;
+    }
 }
 
 input:focus {
@@ -129,6 +148,7 @@ input:focus {
 
 input::placeholder {
     color: rgba(255, 255, 255, 0.3);
+    text-align: justify;
 }
 
 button {
