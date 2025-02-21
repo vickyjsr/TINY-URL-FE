@@ -9,6 +9,10 @@
     color: white;
 }
 
+.redirect-headline {
+    color: #000000;
+}
+
 .loader {
     width: 48px;
     height: 48px;

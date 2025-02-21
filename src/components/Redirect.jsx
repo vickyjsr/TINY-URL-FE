@@ -34,7 +34,7 @@ const Redirect = () => {
 
     return (
         <div className="redirect-loading">
-            <h1>Redirecting...</h1>
+            <h1 className='redirect-headline'>Redirecting...</h1>
             <div className="loader"></div>
         </div>
     );
