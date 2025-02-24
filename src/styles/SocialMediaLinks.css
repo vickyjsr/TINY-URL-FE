@@ -4,10 +4,16 @@
     gap: 20px;
     margin-top: 50px;
     padding: 20px;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3 ease;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     flex-wrap: wrap;
 }
 
+.social-media-container a:hover {
+    color: #b1bfce;
+}
 .social-icon {
     display: flex;
     justify-content: center;
